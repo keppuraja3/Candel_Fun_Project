@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Candel</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        width: 100%;
+        background: #000;
+        height: 100dvh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .candel-container {
+        width: 100%;
+        height: 100%;
+        max-width: 500px;
+        max-height: 800px;
+        background: rgb(8, 8, 8);
+        box-shadow: 1px -1px 20px 0px white;
+        border-radius: 1rem;
+        display: grid;
+        place-items: center;
+        position: relative;
+      }
+      .candel {
+        width: 100px;
+        height: 500px;
+        border-radius: 1rem 1rem 0.4rem 0.4rem;
+        position: relative;
+        z-index: 10;
+        background: white;
+      }
+      .thiri {
+        width: 8px;
+        height: 80px;
+        border-radius: 1em;
+        position: absolute;
+        top: 80px;
+        background: rgb(136, 136, 136);
+        left: 245px;
+      }
+      .candel-shadow {
+        position: absolute;
+        width: 300px;
+        height: 30px;
+        border-radius: 40%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(100, 100, 100, 0.514),
+          transparent
+        );
+        bottom: 16.5%;
+        z-index: 1;
+        left: calc(50% - 150px);
+      }
+      .fire {
+        position: absolute;
+        width: 70px;
+        height: 75px;
+        top: 65px;
+        border-radius: 51% 49% 49% 51% / 88% 85% 15% 12%;
+        background: rgb(252, 150, 17);
+        overflow: hidden;
+        transition: 1s;
+        animation: fireShow 3s infinite;
+      }
+      .inner-fire-container {
+        position: relative;
+      }
+      .inner-fire {
+        width: 53px;
+        height: 40px;
+        position: absolute;
+        background: red;
+        border-radius: 51% 49% 49% 51% / 88% 85% 15% 12%;
+        bottom: -80px;
+        left: 10%;
+        animation: fireShow 3s infinite;
+      }
+      button {
+        padding: 10px;
+        position: absolute;
+        bottom: 10px;
+        border-radius: 1rem;
+        background: wheat;
+        border: solid wheat 3px;
+        cursor: pointer;
+      }
+
+      @keyframes fireShow {
+        0%,
+        100% {
+          transform: skew(0, 0);
+        }
+        50% {
+          transform: translate(5px, 0px) rotate(5deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="candel-container">
+        <div class="candel"></div>
+        <div class="thiri"></div>
+        <div class="candel-shadow"></div>
+        <div class="fire" id="neruppu">
+          <div class="inner-fire-container">
+            <div class="inner-fire"></div>
+          </div>
+        </div>
+        <button onclick="meluguVathi()">Vathi kuchi</button>
+      </div>
+    </div>
+    <script>
+      const neruppu = document.getElementById("neruppu");
+      let isFire = true;
+      function meluguVathi() {
+        if (isFire) {
+          neruppu.style.display = "none";
+          isFire = false;
+        } else {
+          neruppu.style.display = "block";
+          isFire = true;
+        }
+      }
+    </script>
+  </body>
+</html>
